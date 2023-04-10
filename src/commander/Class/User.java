@@ -13,14 +13,20 @@ public class User {
     private int id;
     private String name;
     private String document;
+    private String password;
+    private String role;
+    
+    /*Los posibles roles pueden ser los siguientes
     private String adminRol = "admin";
     private String chefRol = "chef";
-    private String waiterRol = "waiter";
+    private String waiterRol = "waiter";*/
 
-    public User(int id, String name, String document) {
+    public User(int id, String name, String document, String password, String role) {
         this.id = id;
         this.name = name;
         this.document = document;
+        this.password = password;
+        this.role = role;
     }
 
     public User() {
@@ -50,29 +56,20 @@ public class User {
         this.document = document;
     }
 
-    public String getAdminRol() {
-        return adminRol;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAdminRol(String adminRol) {
-        this.adminRol = adminRol;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getChefRol() {
-        return chefRol;
+    public String getRole() {
+        return role;
     }
 
-    public void setChefRol(String chefRol) {
-        this.chefRol = chefRol;
+    public void setRole(String role) {
+        this.role = role;
     }
-
-    public String getWaiterRol() {
-        return waiterRol;
-    }
-
-    public void setWaiterRol(String waiterRol) {
-        this.waiterRol = waiterRol;
-    }
-    
     
 }
