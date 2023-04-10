@@ -4,14 +4,15 @@
  */
 package commander.Controller;
 
-import commander.Class.User;
 import commander.Connection;
-import commander.View.Login;
-import commander.View.usersView;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author dm200
@@ -65,6 +66,50 @@ public class userController {
             } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos, Error: " + ex.toString());
             }
+        }
+    }
+    
+    public void showRecords(JTable paramTable){
+        
+        Connection myConnection = new Connection();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        TableRowSorter<TableModel> orderTable = new TableRowSorter<TableModel>(model);
+        paramTable.setRowSorter(orderTable);
+        
+        Statement statement;
+        String query = "SELECT * FROM commander.user;";
+        
+        model.addColumn("ID");
+        model.addColumn("Nombres");
+        model.addColumn("N° Documento");
+        model.addColumn("Cargo");
+        
+        paramTable.setModel(model);
+        
+        String[] records = new String[4];
+        
+        try {
+            
+            statement = myConnection.Conexion().createStatement();
+            
+            ResultSet result = statement.executeQuery(query);
+            
+            while (result.next()) {
+                
+                records[0] = result.getString(1);
+                records[1] = result.getString(2);
+                records[2] = result.getString(3);
+                records[3] = result.getString(5);
+                
+                model.addRow(records);
+            }
+            
+            paramTable.setModel(model);
+                    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, Error: " + e.toString());
         }
     }
 }

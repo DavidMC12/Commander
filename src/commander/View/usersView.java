@@ -4,6 +4,8 @@
  */
 package commander.View;
 
+import commander.Controller.userController;
+
 /**
  *
  * @author dm200
@@ -16,6 +18,9 @@ public class usersView extends javax.swing.JFrame {
     public usersView() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        userController myUserController = new userController();
+        myUserController.showRecords(usersTable);
     }
 
     /**
@@ -29,14 +34,14 @@ public class usersView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        usersTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tabla Usuarios"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        usersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -44,7 +49,7 @@ public class usersView extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(usersTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,6 +135,6 @@ public class usersView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable usersTable;
     // End of variables declaration//GEN-END:variables
 }
