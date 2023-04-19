@@ -72,4 +72,14 @@ public class User {
         this.role = role;
     }
     
+    public void ImprimirDatos(){
+        System.out.println("________________");
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + name);
+        System.out.println("Apellido: " + document);
+        System.out.println("Correo: " + password);
+        System.out.println("Cargo: " + role);
+        System.out.println("________________");
+    }
+    
 }

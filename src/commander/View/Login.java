@@ -5,6 +5,7 @@
 package commander.View;
 
 import commander.Controller.userController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -116,12 +117,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         userController myUserController = new userController();
-        myUserController.login(txtUser, txtPassword);
-        if (myUserController.getValidation() == 1){
+        myUserController.Login(txtUser, txtPassword);
+        if (myUserController.getValidation()==1){
             usersView myUsersView = new usersView();
             myUsersView.setVisible(true);
-            
             setVisible(false);
+            
         }
         cleanFields();
     }//GEN-LAST:event_btnLoginActionPerformed
