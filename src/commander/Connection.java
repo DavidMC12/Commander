@@ -18,7 +18,7 @@ public class Connection {
     String pass = "2002";
     String cadena = "jdbc:mysql://localhost:3306/commander";
     
-    public java.sql.Connection Conexion(){
+    public java.sql.Connection Connection(){
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

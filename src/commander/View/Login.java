@@ -5,6 +5,7 @@
 package commander.View;
 
 import commander.Controller.userController;
+import commander.DAO.UserDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -121,9 +122,9 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        userController myUserController = new userController();
-        myUserController.Login(txtUser, txtPassword);
-        if (myUserController.getValidation()==1){
+        UserDAO myUserDAO = new UserDAO();
+        myUserDAO.Login(txtUser, txtPassword);
+        if (myUserDAO.getValidation()==1){
             Index myIndex = new Index();
             myIndex.setVisible(true);
             setVisible(false);

@@ -4,6 +4,9 @@
  */
 package commander.View;
 
+import commander.DAO.UserDAO;
+
+
 /**
  *
  * @author dm200
@@ -120,8 +123,9 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsersViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsersViewActionPerformed
-        usersView myusersView = new usersView();
-        myusersView.setVisible(true);
+
+        usersView myUsersView = new usersView();
+        myUsersView.setVisible(true);
     }//GEN-LAST:event_btnUsersViewActionPerformed
 
     private void btnProductsViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsViewActionPerformed

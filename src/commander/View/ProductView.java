@@ -18,7 +18,7 @@ public class ProductView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         ProductController myProductController = new ProductController();
-        myProductController.showRecords(productsTable);
+//        myProductController.showRecords(productsTable);
     }
 
     /**
