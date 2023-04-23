@@ -316,31 +316,6 @@ public class usersView extends javax.swing.JFrame {
         cleanFields();
     }//GEN-LAST:event_btnCleanActionPerformed
 
-    private void defineTableUser(){
-       
-        DefaultTableModel model = new DefaultTableModel(){
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        model.addColumn("ID");
-        model.addColumn("Nombres");
-        model.addColumn("N° Documento");
-        model.addColumn("Cargo");
-        
-        usersTable.setModel(model);
-    }
-//    public void showRecords(){
-//        
-//        DefaultTableModel updatedModel = (DefaultTableModel) usersTable.getModel();
-//        updatedModel.setRowCount(0);    
-//        for (User user : myUserModel.getUsersList()) {
-//        Object[] row = {user.getId(),user.getName(), user.getDocument(), user.getRole()};
-//        updatedModel.addRow(row);
-//        }
-//        usersTable.setModel(updatedModel);
-//    }
     private void cleanFields(){
         txtId.setText("");
         txtNames.setText("");

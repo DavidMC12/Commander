@@ -4,9 +4,8 @@
  */
 package commander.View;
 
-import commander.Controller.userController;
 import commander.DAO.UserDAO;
-import javax.swing.JOptionPane;
+
 
 /**
  *
