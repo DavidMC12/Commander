@@ -66,6 +66,11 @@ public class Index extends javax.swing.JFrame {
 
         btnCommanderView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCommanderView.setText("Comanda");
+        btnCommanderView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCommanderViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +137,11 @@ public class Index extends javax.swing.JFrame {
         ProductView myProductView = new ProductView();
         myProductView.setVisible(true);
     }//GEN-LAST:event_btnProductsViewActionPerformed
+
+    private void btnCommanderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommanderViewActionPerformed
+        DishesView myDishesView = new DishesView();
+        myDishesView.setVisible(true);
+    }//GEN-LAST:event_btnCommanderViewActionPerformed
 
     /**
      * @param args the command line arguments

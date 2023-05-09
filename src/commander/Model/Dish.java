@@ -4,8 +4,6 @@
  */
 package commander.Model;
 
-import java.util.List;
-
 /**
  *
  * @author dm200
@@ -14,12 +12,12 @@ public class Dish {
     
     private int id;
     private String name;
-    private List<Product> product;
+    private String desc;
 
-    public Dish(int id, String name, List<Product> product) {
+    public Dish(int id, String name, String desc) {
         this.id = id;
         this.name = name;
-        this.product = product;
+        this.desc = desc;
     }
 
     public Dish() {
@@ -41,12 +39,13 @@ public class Dish {
         this.name = name;
     }
 
-    public List<Product> getProduct() {
-        return product;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setProduct(List<Product> product) {
-        this.product = product;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
-    
 }
+
+   
