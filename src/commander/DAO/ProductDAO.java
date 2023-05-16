@@ -70,6 +70,7 @@ public class ProductDAO {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, Error: " + e.toString());
         }
     }
+    
     public void addProduct(JTextField paramNames, JTextField paramDesc, JTextField paramStock, JComboBox paramUnity, JTextField paramDateExpiration){
         
         Product mytProduct = new Product();
@@ -187,4 +188,49 @@ public class ProductDAO {
             JOptionPane.showMessageDialog(null, "Error en la eliminación del registro: " + e.toString());
         }
     }
+    
+    public void showRecordsProduct(JTable paramTable){
+        
+        Connection myConnection = new Connection();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        TableRowSorter<TableModel> orderTable = new TableRowSorter<TableModel>(model);
+        paramTable.setRowSorter(orderTable);
+        
+        Statement statement;
+        String query = "SELECT * FROM commander.product;";
+        
+        model.addColumn("ID");
+        model.addColumn("Nombre");
+        model.addColumn("Descripción");
+        
+        paramTable.setModel(model);
+        
+        String[] records = new String[3];
+        
+        try {
+            
+            statement = myConnection.Connection().createStatement();
+            
+            ResultSet result = statement.executeQuery(query);
+            
+            while (result.next()) {
+                
+                records[0] = result.getString(1);
+                records[1] = result.getString(2);
+                records[2] = result.getString(3);
+                
+                model.addRow(records);
+            }
+            
+            paramTable.setModel(model);
+                    
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, Error: " + e.toString());
+        }
+    }
+    
+
+    
 }

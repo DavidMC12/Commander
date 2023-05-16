@@ -127,8 +127,20 @@ public class Login extends javax.swing.JFrame {
             Index myIndex = new Index();
             myIndex.setVisible(true);
             setVisible(false);
-            
         }
+        
+        if (myUserDAO.getValidation()==2){
+            CommanderView myCommanderView = new CommanderView();
+            myCommanderView.setVisible(true);
+            setVisible(false);
+        }
+        
+        if (myUserDAO.getValidation()==3){
+            OrderView myOrderView = new OrderView();
+            myOrderView.setVisible(true);
+            setVisible(false);
+        }
+        
         cleanFields();
     }//GEN-LAST:event_btnLoginActionPerformed
 

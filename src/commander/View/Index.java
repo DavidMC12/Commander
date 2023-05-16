@@ -36,6 +36,8 @@ public class Index extends javax.swing.JFrame {
         btnUsersView = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnProductsView = new javax.swing.JButton();
+        btnDishesView = new javax.swing.JButton();
+        btnOrderView = new javax.swing.JButton();
         btnCommanderView = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,6 +66,22 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
+        btnDishesView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDishesView.setText("Platos");
+        btnDishesView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDishesViewActionPerformed(evt);
+            }
+        });
+
+        btnOrderView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnOrderView.setText("Ordenes");
+        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderViewActionPerformed(evt);
+            }
+        });
+
         btnCommanderView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCommanderView.setText("Comanda");
         btnCommanderView.addActionListener(new java.awt.event.ActionListener() {
@@ -77,16 +95,23 @@ public class Index extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(btnUsersView)
-                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnProductsView)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnCommanderView))
-                    .addComponent(jLabel2))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(69, 69, 69)
+                        .addComponent(btnUsersView)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnProductsView)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnDishesView, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(btnOrderView)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnCommanderView)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,8 +122,12 @@ public class Index extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUsersView)
                     .addComponent(btnProductsView)
+                    .addComponent(btnDishesView))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOrderView)
                     .addComponent(btnCommanderView))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,19 +157,33 @@ public class Index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsersViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsersViewActionPerformed
-
-        usersView myUsersView = new usersView();
+        UserView myUsersView = new UserView();
         myUsersView.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnUsersViewActionPerformed
 
     private void btnProductsViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsViewActionPerformed
         ProductView myProductView = new ProductView();
         myProductView.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnProductsViewActionPerformed
 
-    private void btnCommanderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommanderViewActionPerformed
-        DishesView myDishesView = new DishesView();
+    private void btnDishesViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDishesViewActionPerformed
+        DishView myDishesView = new DishView();
         myDishesView.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDishesViewActionPerformed
+
+    private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
+        OrderView myOrderView = new OrderView();
+        myOrderView.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnOrderViewActionPerformed
+
+    private void btnCommanderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommanderViewActionPerformed
+        CommanderView myCommanderView = new CommanderView();
+        myCommanderView.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCommanderViewActionPerformed
 
     /**
@@ -180,6 +223,8 @@ public class Index extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCommanderView;
+    private javax.swing.JButton btnDishesView;
+    private javax.swing.JButton btnOrderView;
     private javax.swing.JButton btnProductsView;
     private javax.swing.JButton btnUsersView;
     private javax.swing.JLabel jLabel1;

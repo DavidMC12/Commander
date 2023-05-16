@@ -43,7 +43,7 @@ public class UserDAO {
         Connection myConnection = new Connection();
     
         Statement statement;
-        String query = ("SELECT * FROM user WHERE document='"+ user +"' AND password='"+ password +"' ");
+        String query = ("SELECT * FROM user WHERE document='"+ user +"' AND password='"+ password +"'");
         
         if (user.isEmpty() || password.isEmpty()) {
         // Mostrar mensaje de error si algún campo está vacío
@@ -58,7 +58,25 @@ public class UserDAO {
 
                 if(result.next()){
                     
-                    setValidation(1);
+                    String roleSelected = result.getString("role");
+                    
+                    String roleAdmin = "Administrador";
+                    String roleChef = "Chef";
+                    String roleWaiter = "Mesero";
+                    
+                    
+                    if (roleAdmin.equals(roleSelected)) {
+                        setValidation(1);
+                    } 
+                    
+                    if (roleChef.equals(roleSelected)){
+                        setValidation(2);
+                    }
+                    
+                    if (roleWaiter.equals(roleSelected)){
+                        setValidation(3);
+                    }
+                    
                     JOptionPane.showMessageDialog(null, "Bienvenido!");
                     
                 } else {

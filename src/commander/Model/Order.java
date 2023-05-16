@@ -4,8 +4,6 @@
  */
 package commander.Model;
 
-import commander.Model.Product;
-import java.util.List;
 
 /**
  *
@@ -15,14 +13,12 @@ public class Order {
     
     private int id;
     private String status;
-    private int table;
-    private List<Dish> dishes;
+    private int nTable;
 
-    public Order(int id, String status, int table, List<Dish> dishes) {
+    public Order(int id, String status, int table) {
         this.id = id;
         this.status = status;
-        this.table = table;
-        this.dishes = dishes;
+        this.nTable = table;
     }
 
     public Order() {
@@ -45,21 +41,10 @@ public class Order {
     }
 
     public int getTable() {
-        return table;
+        return nTable;
     }
 
     public void setTable(int table) {
-        this.table = table;
+        this.nTable = table;
     }
-
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-    
-    
-    
 }

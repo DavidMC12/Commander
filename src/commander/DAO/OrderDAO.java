@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package commander.DAO;
+
 
 import commander.Connection;
 import commander.Model.Dish;
-import commander.Model.Product;
+import commander.Model.Order;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,11 +15,16 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 /**
  *
  * @author dm200
  */
-public class DishDAO {
+public class OrderDAO {
     public void showRecords(JTable paramTable){
         
         Connection myConnection = new Connection();
@@ -33,11 +35,11 @@ public class DishDAO {
         paramTable.setRowSorter(orderTable);
         
         Statement statement;
-        String query = "SELECT * FROM commander.dish;";
+        String query = "SELECT * FROM commander.order WHERE status='Pendiente';";
         
         model.addColumn("ID");
-        model.addColumn("Nombre");
-        model.addColumn("Descripción");
+        model.addColumn("Estado");
+        model.addColumn("Mesa");
         
         paramTable.setModel(model);
         
@@ -65,25 +67,42 @@ public class DishDAO {
         }
     }
     
-    public void addDish(JTextField paramNames, JTextArea paramDesc){
+    public void selectRecord(JTable paramTabla, JTextField paramId, JTextField paramTeble){
         
-        Dish myDish = new Dish();
+        try {
+            
+            int fila = paramTabla.getSelectedRow();
+            
+            if (fila >= 0) {
+                
+                paramId.setText((String) paramTabla.getValueAt(fila, 0));
+                paramTeble.setText((String) paramTabla.getValueAt(fila, 2));
+            } else {
+                JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de selección: " + e.toString());
+        }
+    }
+    
+    public void addOrder(JTextField paramTable){
         
+        Order myOrder = new Order();              
         
-        myDish.setName(paramNames.getText());
-        myDish.setDesc(paramDesc.getText());
+        myOrder.setTable(Integer.parseInt(paramTable.getText()));
+        //myOrder.setStatus("Pendiente");
         
         Connection myConnection = new Connection();
         
-        String query = ("INSERT INTO dish (name, description) values (?,?);");
+        String query = ("INSERT INTO commander.`order` (status,nTable) VALUES ('Pendiente',?);");
         
         try {
             
             CallableStatement cs = myConnection.Connection().prepareCall(query);
             
             
-            cs.setString(1, myDish.getName());
-            cs.setString(2,myDish.getDesc());
+            cs.setInt(1, myOrder.getTable());
+            //cs.setString(2,myOrder.getStatus());
             
             cs.execute();
             
@@ -94,97 +113,24 @@ public class DishDAO {
         }
     }
     
-    public void selectRecord(JTable paramTabla, JTextField paramId, JTextField paramName, JTextArea paramDesc){
-        
-        try {
-            
-            int fila = paramTabla.getSelectedRow();
-            
-            if (fila >= 0) {
-                
-                paramId.setText((String) paramTabla.getValueAt(fila, 0));
-                paramName.setText((String) paramTabla.getValueAt(fila, 1));
-                paramDesc.setText((String) paramTabla.getValueAt(fila,2));
-            } else {
-                JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error de selección: " + e.toString());
-        }
-    }
-    
-    public void modifyDish(JTextField paramId, JTextField paramName, JTextArea paramDesc){
-    
-        Connection myConnection = new Connection();
-        
-        Dish myDish = new Dish();
-        
-        myDish.setId(Integer.parseInt(paramId.getText()));
-        myDish.setName(paramName.getText());
-        myDish.setDesc(paramDesc.getText());
-        
-        String query = "UPDATE dish SET dish.name = ?, dish.description = ? WHERE dish.id = ?;";
-        
-        try {
-            
-            CallableStatement cs = myConnection.Connection().prepareCall(query);
-            
-            
-            cs.setString(1, myDish.getName());
-            cs.setString(2,myDish.getDesc());
-            cs.setInt(3, myDish.getId());
-            
-            cs.execute();
-            
-            JOptionPane.showMessageDialog(null, "Modificación hecha");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la modificación: " + e.toString());
-        }
-        }
-    
-    public void deleteDish(JTextField paramID){
+    public void showDishesRelationated(JTable paramTable, JTextField paramID){
         
         Connection myConnection = new Connection();
         
-        Dish myDish = new Dish();
-        
-        myDish.setId(Integer.parseInt(paramID.getText()));
-        
-        String query = "DELETE FROM dish WHERE dish.id = ?;";
-        
-        try {
-            
-            CallableStatement cs = myConnection.Connection().prepareCall(query);
-            
-            cs.setInt(1, myDish.getId());
-            
-            cs.execute();
-            
-            JOptionPane.showMessageDialog(null, "Eliminación Exitosa");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la eliminación del registro: " + e.toString());
-        }
-    }
-    
-    public void showProductsRelationated(JTable paramTable, JTextField paramID){
-        
-        Connection myConnection = new Connection();
-        
-        Dish myDish = new Dish();
+        Order myOrder = new Order();
         
         DefaultTableModel model = new DefaultTableModel();
         
         TableRowSorter<TableModel> orderTable = new TableRowSorter<TableModel>(model);
         paramTable.setRowSorter(orderTable);
         
-        myDish.setId(Integer.parseInt(paramID.getText()));
+        myOrder.setId(Integer.parseInt(paramID.getText()));
         
-        String query = "SELECT dp.id, p.name, p.description "
-                + "FROM commander.product p "
-                + "INNER JOIN commander.`dish-product` dp ON p.id = dp.fk_id_product "
-                + "INNER JOIN commander.dish d ON dp.fk_id_dish = d.id "
-                + "WHERE d.id = ?;";
+        String query = "SELECT od.id, d.name, d.description "
+                + "FROM commander.`order` o "
+                + "INNER JOIN commander.`order-dish` od ON o.id = od.fk_id_order "
+                + "INNER JOIN commander.dish d ON od.fk_id_dish = d.id "
+                + "WHERE o.id = ?;";
         
         model.addColumn("ID");
         model.addColumn("Nombre");
@@ -197,7 +143,7 @@ public class DishDAO {
         try {
             
             CallableStatement  ps = myConnection.Connection().prepareCall(query);
-            ps.setInt(1, myDish.getId());
+            ps.setInt(1, myOrder.getId());
             ResultSet result = ps.executeQuery();
             
             while (result.next()) {
@@ -216,11 +162,11 @@ public class DishDAO {
         }
     }
     
-        public void addDishProduct(JTable paramTabla, String paramIdDish){
+    public void addOrderDish(JTable paramTabla, String paramId){
         
-        Dish myDish = new Dish();
+        Order myOrder = new Order();
         
-        myDish.setId(Integer.parseInt(paramIdDish));
+        myOrder.setId(Integer.parseInt(paramId));
         
         int id = 0;
             
@@ -229,20 +175,21 @@ public class DishDAO {
             if (fila >= 0) {
                 
                 id = Integer.parseInt(paramTabla.getValueAt(fila, 0).toString());
+                System.out.println(id);
             } else {
                 JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
             }
         
         Connection myConnection = new Connection();
         
-        String query = ("INSERT INTO commander.`dish-product` (fk_id_dish, fk_id_product) values (?,?);");
+        String query = ("INSERT INTO commander.`order-dish` (fk_id_order, fk_id_dish) values (?,?);");
         
         try {
             
             CallableStatement cs = myConnection.Connection().prepareCall(query);
             
             
-            cs.setInt(1, myDish.getId());
+            cs.setInt(1, myOrder.getId());
             cs.setInt(2,id);
             
             cs.execute();
@@ -253,8 +200,8 @@ public class DishDAO {
             JOptionPane.showMessageDialog(null, "Hubo un error al realizar la acción" + e.toString());
         }
     }
-        
-    public void deleteDishProduct(JTable paramTabla){
+    
+    public void deleteDishFromOrder(JTable paramTabla){
         
         Connection myConnection = new Connection();
         
@@ -269,7 +216,7 @@ public class DishDAO {
                 JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
             }
         
-        String query = "DELETE FROM commander.`dish-product` WHERE `dish-product`.id = ?;";
+        String query = "DELETE FROM commander.`order-dish` WHERE `order-dish`.id = ?;";
         
         try {
             
@@ -283,5 +230,79 @@ public class DishDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error en la eliminación del registro: " + e.toString());
         }
-    }   
+    }
+    
+    public void FinishOrder(JTable paramTable){
+    
+        Connection myConnection = new Connection();
+        
+        Order myOrder = new Order();
+        
+        int id = 0;
+            
+        int fila = paramTable.getSelectedRow();
+            
+            if (fila >= 0) {
+                id = Integer.parseInt(paramTable.getValueAt(fila, 0).toString());
+                myOrder.setId(id);
+            } else {
+                JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
+            }
+        
+        myOrder.setId(id);
+        
+        String query = "UPDATE commander.`order` SET commander.`order`.status = 'Finalizado' WHERE commander.`order`.id = ?;";
+        
+        try {
+            
+            CallableStatement cs = myConnection.Connection().prepareCall(query);
+            
+            
+            cs.setInt(1, id);
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "La orden ha finalizado");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la modificación: " + e.toString());
+        }
+    }
+    
+    public void SendOrder(JTable paramTable){
+    
+        Connection myConnection = new Connection();
+        
+        Order myOrder = new Order();
+        
+        int id = 0;
+            
+        int fila = paramTable.getSelectedRow();
+            
+            if (fila >= 0) {
+                id = Integer.parseInt(paramTable.getValueAt(fila, 0).toString());
+                myOrder.setId(id);
+            } else {
+                JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
+            }
+        
+        myOrder.setId(id);
+        
+        String query = "UPDATE commander.`order` SET commander.`order`.status = 'Enviado' WHERE commander.`order`.id = ?;";
+        
+        try {
+            
+            CallableStatement cs = myConnection.Connection().prepareCall(query);
+            
+            cs.setInt(1, id);
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "La orden se ha enviado a la cocina");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en la modificación: " + e.toString());
+        }
+    }
+    
 }
