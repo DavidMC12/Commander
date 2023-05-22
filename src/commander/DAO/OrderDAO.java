@@ -212,24 +212,26 @@ public class OrderDAO {
             if (fila >= 0) {
                 
                 id = Integer.parseInt(paramTabla.getValueAt(fila, 0).toString());
+                
+                String query = "DELETE FROM commander.`order-dish` WHERE `order-dish`.id = ?;";
+                
+                try {
+
+                    CallableStatement cs = myConnection.Connection().prepareCall(query);
+
+                    cs.setInt(1, id);
+
+                    cs.execute();
+
+                    JOptionPane.showMessageDialog(null, "Eliminación Exitosa");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error en la eliminación del registro: " + e.toString());
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "Fila, no seleccionada");
             }
         
-        String query = "DELETE FROM commander.`order-dish` WHERE `order-dish`.id = ?;";
         
-        try {
-            
-            CallableStatement cs = myConnection.Connection().prepareCall(query);
-            
-            cs.setInt(1, id);
-            
-            cs.execute();
-            
-            JOptionPane.showMessageDialog(null, "Eliminación Exitosa");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error en la eliminación del registro: " + e.toString());
-        }
     }
     
     public void FinishOrder(JTable paramTable){

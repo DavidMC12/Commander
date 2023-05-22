@@ -40,25 +40,26 @@ public class OrderView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDishes = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        txtTable = new javax.swing.JTextField();
-        btnAddOrder = new javax.swing.JButton();
         btnAddDish = new javax.swing.JButton();
         btnSend = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        txtTable = new javax.swing.JTextField();
+        btnAddOrder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jLabel1.setText("Orden");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 6, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
 
-        pito.setBorder(javax.swing.BorderFactory.createTitledBorder("Ordenes"));
+        pito.setBackground(new java.awt.Color(255, 255, 255));
+        pito.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ordenes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 18))); // NOI18N
 
         tableOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,16 +80,17 @@ public class OrderView extends javax.swing.JFrame {
         pito.setLayout(pitoLayout);
         pitoLayout.setHorizontalGroup(
             pitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
         pitoLayout.setVerticalGroup(
             pitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
         );
 
-        getContentPane().add(pito, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 123, -1, -1));
+        getContentPane().add(pito, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 530, -1));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Platos"));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Platos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 18))); // NOI18N
 
         tableDishes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,76 +106,79 @@ public class OrderView extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 355, 534, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 530, -1));
 
-        jLabel2.setText("Número de mesa:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 91, -1, -1));
-
-        txtTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTableActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 88, 80, -1));
-
-        btnAddOrder.setText("Crear Orden");
-        btnAddOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddOrderActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAddOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 88, -1, -1));
-
+        btnAddDish.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btnAddDish.setText("Añadir Platos");
         btnAddDish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddDishActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAddDish, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 548, -1, -1));
+        getContentPane().add(btnAddDish, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, -1, -1));
 
+        btnSend.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btnSend.setText("Enviar Orden");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSendActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 548, -1, -1));
+        getContentPane().add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 680, -1, -1));
 
-        jLabel3.setText("ID:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 51, -1, -1));
-        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 48, 30, -1));
-
-        btnBack.setText("Volver");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 6, -1, -1));
-
-        btnLogOut.setText("Salir");
+        btnLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commander/images/verificar.png"))); // NOI18N
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        getContentPane().add(btnLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        btnDelete.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         btnDelete.setText("Eliminar");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 548, -1, -1));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 680, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel2.setText("Número de mesa:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel3.setText("ID:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 45, -1));
+
+        txtTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTableActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 140, -1));
+
+        btnAddOrder.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnAddOrder.setText("Crear Orden");
+        btnAddOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrderActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAddOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,12 +203,6 @@ public class OrderView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione una Orden");
         }
     }//GEN-LAST:event_btnAddDishActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        this.dispose();
-        Index myIndex = new Index();
-        myIndex.setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         this.dispose();
@@ -268,7 +267,6 @@ public class OrderView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddDish;
     private javax.swing.JButton btnAddOrder;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnSend;
@@ -276,6 +274,7 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pito;

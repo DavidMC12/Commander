@@ -18,7 +18,8 @@ public class Index extends javax.swing.JFrame {
      */
     public Index() {
         initComponents();
-        
+        btnOrderView.setVisible(false);
+        btnCommanderView.setVisible(false);
         this.setLocationRelativeTo(null);
     }
 
@@ -112,8 +113,8 @@ public class Index extends javax.swing.JFrame {
         jPanel1.add(btnCommanderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setText("Órdenes");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
+        jLabel3.setText("Platos");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel4.setText("Usuarios");
