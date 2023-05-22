@@ -31,48 +31,67 @@ public class Index extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         btnUsersView = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnProductsView = new javax.swing.JButton();
         btnDishesView = new javax.swing.JButton();
         btnOrderView = new javax.swing.JButton();
         btnCommanderView = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 400));
+        setSize(new java.awt.Dimension(600, 400));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        jLabel1.setText("Bienvenido");
-
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setMaximumSize(new java.awt.Dimension(600, 400));
+        jPanel1.setMinimumSize(new java.awt.Dimension(600, 400));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnUsersView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnUsersView.setText("Usuarios");
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
+        jLabel1.setText("Bienvenido");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+
+        btnUsersView.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btnUsersView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commander/images/usuarios.png"))); // NOI18N
+        btnUsersView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsersView.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnUsersView.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnUsersView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsersViewActionPerformed(evt);
             }
         });
+        jPanel1.add(btnUsersView, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 120, 80));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("Administrar:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         btnProductsView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnProductsView.setText("Productos");
+        btnProductsView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commander/images/productos.png"))); // NOI18N
+        btnProductsView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnProductsView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductsViewActionPerformed(evt);
             }
         });
+        jPanel1.add(btnProductsView, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, 80));
 
         btnDishesView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnDishesView.setText("Platos");
+        btnDishesView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/commander/images/comanda.png"))); // NOI18N
+        btnDishesView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDishesView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDishesViewActionPerformed(evt);
             }
         });
+        jPanel1.add(btnDishesView, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 120, 80));
 
         btnOrderView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnOrderView.setText("Ordenes");
@@ -81,6 +100,7 @@ public class Index extends javax.swing.JFrame {
                 btnOrderViewActionPerformed(evt);
             }
         });
+        jPanel1.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
         btnCommanderView.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCommanderView.setText("Comanda");
@@ -89,68 +109,29 @@ public class Index extends javax.swing.JFrame {
                 btnCommanderViewActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCommanderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnUsersView)
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnProductsView)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnDishesView, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(btnOrderView)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnCommanderView)))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(76, 76, 76)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUsersView)
-                    .addComponent(btnProductsView)
-                    .addComponent(btnDishesView))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOrderView)
-                    .addComponent(btnCommanderView))
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel3.setText("Órdenes");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel4.setText("Usuarios");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel5.setText("Productos");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -229,6 +210,9 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JButton btnUsersView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
